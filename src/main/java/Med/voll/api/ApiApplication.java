@@ -1,4 +1,4 @@
-package Med.voll.api;
+package med.voll.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
