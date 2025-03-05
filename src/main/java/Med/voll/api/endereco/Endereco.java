@@ -13,7 +13,7 @@ import jakarta.persistence.Embeddable;
 public class Endereco {
 
     public Endereco(DadosEndereco endereco) {
-        //TODO Auto-generated constructor stub
+        
         this.logradouro = endereco.logradouro();
         this.bairro = endereco.bairro();
         this.cep = endereco.cep();

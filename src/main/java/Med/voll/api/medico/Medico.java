@@ -24,7 +24,7 @@ import jakarta.persistence.GenerationType;
 public class Medico {
 
     public Medico(DadosCadastroMedico dados) {
-        //TODO Auto-generated constructor stub
+        
         this.nome=dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
