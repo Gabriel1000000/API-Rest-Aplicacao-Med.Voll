@@ -7,6 +7,6 @@ import med.voll.api.usuario.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
-    UserDetails findByEmail(String login);
+    UserDetails findByLogin(String login);
     
 }
