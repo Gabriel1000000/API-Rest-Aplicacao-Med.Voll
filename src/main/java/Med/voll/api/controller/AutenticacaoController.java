@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,26 +10,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import med.voll.api.domain.usuario.DadosAutentucacao;
+import med.voll.api.domain.usuario.Usuario;
 import med.voll.api.infra.security.DadosTokenJWT;
 import med.voll.api.infra.security.TokenService;
-import med.voll.api.usuario.DadosAutentucacao;
-import med.voll.api.usuario.Usuario;
+
 
 
 
 
 @RestController
 @RequestMapping("/login")
+@Tag(name = "Login", description = "Autenticação e geração de token JWT")
 public class AutenticacaoController {
     @Autowired
     private AuthenticationManager manager;
 
     @Autowired
     private TokenService tokenService;
-
-    // @Autowired
-    // private MedicoRepository repository;
 
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutentucacao dados){
