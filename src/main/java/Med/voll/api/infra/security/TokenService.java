@@ -12,7 +12,9 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 
-import med.voll.api.usuario.Usuario;
+import med.voll.api.domain.usuario.Usuario;
+
+
 
 @Service
 public class TokenService {
