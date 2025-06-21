@@ -1,17 +1,16 @@
 package med.voll.api.controller;
 
-import lombok.var;
-// import java.util.List;
 import jakarta.validation.Valid;
-import med.voll.api.medico.Medico;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
-import med.voll.api.medico.DadosListaMedico;
-import med.voll.api.medico.DadosCadastroMedico;
-import med.voll.api.medico.DadosDetalhesMedicos;
+
+import med.voll.api.domain.medico.DadosAtualizacaoMedico;
+import med.voll.api.domain.medico.DadosCadastroMedico;
+import med.voll.api.domain.medico.DadosDetalhesMedicos;
+import med.voll.api.domain.medico.DadosListaMedico;
+import med.voll.api.domain.medico.Medico;
 import med.voll.api.repository.MedicoRepository;
 import org.springframework.data.domain.Pageable;
-import med.voll.api.medico.DadosAtualizacaoMedico;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,10 +24,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 
 @RestController
 @RequestMapping("/medico")
+@Tag(name = "Médicos", description = "Operações para cadastrar médicos")
+@SecurityRequirement(name = "bearer-key")
 public class DoctorController {
     
     @Autowired
@@ -49,6 +53,7 @@ public class DoctorController {
         var page = repository.findAllByAtivoTrue(paginacao).map(DadosListaMedico::new);
         return ResponseEntity.ok(page);
     }
+    
     // para trazer uma lista
     // public List<DadosListaMedico> listar(){
     //     return repository.findAll().stream().map(DadosListaMedico::new).toList();
