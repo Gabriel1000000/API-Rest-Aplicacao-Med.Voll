@@ -494,7 +494,7 @@ O projeto possui testes unitários e de repositório com **JUnit**.
 Acesse a documentação da API gerada com Springdoc OpenAPI em:
 
 ```
-http://localhost:8080/swagger-ui.html
+https://api-rest-aplicacao-med-voll.onrender.com/swagger-ui/index.html
 ```
 
 ---
