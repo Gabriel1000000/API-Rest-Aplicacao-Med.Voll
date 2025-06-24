@@ -17,6 +17,9 @@ public interface MedicoRepository extends JpaRepository <Medico, Long> {
 
     Page<Medico> findAllByAtivoTrue(Pageable paginacao);
 
+
+    // para usar no mysql use o "order by rand() "
+    // para usar no PostgreSQL use o "order by random()" 
     @Query("""
     select m from Medico m
     where
@@ -30,7 +33,7 @@ public interface MedicoRepository extends JpaRepository <Medico, Long> {
       c.data = :data
       and
       c.motivoCancelamento is null)
-    order by rand()
+    order by random()
     """)
     Page<Medico> escolherMedicosDisponiveisNaData(Especialidade especialidade, LocalDateTime data, Pageable pageable);
 
